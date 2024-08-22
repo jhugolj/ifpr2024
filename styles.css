@@ -1,0 +1,170 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+  }
+  
+  .input-group {
+    margin-bottom: 20px;
+  }
+  
+  .input-group label {
+    margin-right: 10px;
+  }
+  
+  .ballot-box {
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 30px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    width: 700px;
+  }
+  
+  .candidate-photo {
+    margin-right: 20px;
+    text-align: center;
+    flex: 1;
+    border: 2px solid #ccc;
+    padding: 10px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+  }
+  
+  .candidate-photo img {
+    width: 150px;
+    height: 200px;
+    object-fit: cover;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .candidate-photo p {
+    font-size: 28px;
+    color: #000000;
+    margin: 0;
+  }
+  
+  .candidate-photo img.default {
+    width: 120px; 
+    height: 160px;
+    border: #fff;
+  }
+  
+  .voting-section {
+    flex-grow: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  #candidateDisplay {
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  #enteredNumber {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+    height: 30px;
+    border: 1px solid #f9f9f9;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #f9f9f9;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .keypad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .keypad button {
+    padding: 15px;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+  }
+  
+  .container-row {
+    display: flex;
+    align-items: flex-end;
+    margin-left: 4px;
+    margin-right: 4px;
+  }
+  
+  .bottom-column {
+    float: none;
+    display: inline-block;
+  }
+  
+  .action-buttons {
+    display: block;
+    justify-content: space-between;
+    width: 100%;
+    margin-left: 4px;
+    margin-right: 4px;
+    align-content: end;
+  }
+  
+  .confirm-button {
+    padding: 15px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 30%;
+    background-color: rgb(69, 163, 66);
+    color: white;
+    border: 1px solid gray;
+    border-radius: 5px;
+  }
+  
+  .correct-button {
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 30%;
+    background-color: rgb(255, 100, 0);
+    color: black;
+    border: 1px solid gray;
+    border-radius: 5px;
+  }
+  
+  .blank-button {
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 30%;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 5px;
+  }
+  
+  .vote-button {
+    background-color: green;
+    color: red;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 15px 30px;
+    margin-top: 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+  }
+  
