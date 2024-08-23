@@ -9,22 +9,24 @@
 </head>
 <body>
 
- <h1>Votações IFPR Pitanga 2024 (Em teste)</h1>
-
+ <h1>Eleição Marketing IFPR Pitanga 2024</h1>
+ 
+ <div class="container"><p>Esta página é dedicada ao trabalho da disciplina de Marketing dos Alunos de Cooperativismo do Professor José Hugo do IFPR Campus Pitanga. Qualquer semelhança com a realidade é mera coincidência.<br><br> - É necessário identificação identificação para registro dos votos.</p></div>
+    <hr>
  <div class="input-group">
-  <label for="name"><b>Nome:</b></label>
+  <label for="name"><b> &nbsp Nome:</b></label>
   <input type="text" id="name" required>
  </div>
  <div class="input-group">
-  <label for="email"><b>Email:</b></label>
+  <label for="email"><b> &nbsp Email:</b></label>
   <input type="email" id="email" required>
  </div>
  <div class="input-group">
   <label for="category"><b>Categoria:</b></label>
   <select id="category" required>
    <option value="" disabled selected>Selecione</option>
-   <option value="servidor">Servidor</option>
-   <option value="estudante">Estudante do IFPR Pitanga</option>
+   <option value="estudante"><b>Estudante do IFPR Pitanga</b></option>
+   <option value="servidor">Servidor do IFPR</option>
    <option value="comunidade">Parentes e Público em Geral</option>
   </select>
  </div>
@@ -32,12 +34,13 @@
 
  <div id="ballotBox" class="ballot-box">
   <div class="candidate-photo">
-   <img id="candidatePhoto" src="default.jpg" alt="Foto do Candidato">
-   <p id="candidateName">Aqui aparecerá a foto do candidato</p>
-   <p id="candidateParty"></p>
+   <img id="candidatePhoto" src="default.png" alt="Foto do Candidato">
+   <p id="candidateName" style="font-weight: bold;">Aqui teremos o nome do(a) Candidato(a)</b></p>
+   <br>
+   <p id="candidateParty"> Partido do(a) Candidato(a)</p>
   </div>
   <div class="voting-section">
-   <div id="candidateDisplay">Digite o número do candidato:</div>
+   <div id="candidateDisplay">Digite o número do(a) candidato(a):</div>
    <div id="enteredNumber"></div>
    <div class="keypad">
     <button onclick="enterNumber('1')">1</button>
@@ -51,7 +54,7 @@
     <button onclick="enterNumber('9')">9</button>
     <button onclick="enterNumber('0')">0</button>
    </div>
-   <div class="container">
+   <div>
     <div class="action-buttons">
      <button class="blank-button" onclick="blankVote()">Branco</button>
      <button class="correct-button" onclick="clearVote()">Corrige</button>
@@ -64,9 +67,10 @@
  <script>
   let vote = '';
   const candidates = {
-   '12': { name: 'Candidato A', photo: 'fotoA.jpg', party: 'Partido A' },
-   '34': { name: 'Candidato Honesto', photo: 'fotoB.jpg', party: 'Partido B' },
-   '56': { name: 'Candidato C', photo: 'fotoC.jpg', party: 'Partido C' }
+   '12': { name: 'A mulher A', photo: 'fotoA.png', party: 'Partido A' },
+   '34': { name: 'Candidato Honesto', photo: 'fotoB.jpg', party: 'Partido da Ética Democrática Nacional' },
+   '56': { name: 'O Homem C', photo: 'fotoC.png', party: 'Partido C' },
+   '78': { name: 'A Candidata Honesta', photo: 'fotoD.png', party: 'Partido da Soberania Democrática Nacional' }
   };
 
   function startVoting() {
@@ -98,8 +102,8 @@
     document.getElementById('candidateName').textContent = candidate.name;
     document.getElementById('candidateParty').textContent = candidate.party;
    } else {
-    document.getElementById('candidatePhoto').src = 'default.jpg';
-    document.getElementById('candidateName').textContent = 'Candidato não encontrado';
+    document.getElementById('candidatePhoto').src = 'default.png';
+    document.getElementById('candidateName').textContent = 'Voto Nulo';
     document.getElementById('candidateParty').textContent = '';
    }
   }
@@ -107,7 +111,7 @@
   function blankVote() {
    vote = 'Branco';
    document.getElementById('enteredNumber').textContent = 'Voto em Branco';
-   document.getElementById('candidatePhoto').src = 'default.jpg';
+   document.getElementById('candidatePhoto').src = 'default.png';
    document.getElementById('candidateName').textContent = '';
    document.getElementById('candidateParty').textContent = '';
   }
@@ -115,7 +119,7 @@
   function clearVote() {
    vote = '';
    document.getElementById('enteredNumber').textContent = '';
-   document.getElementById('candidatePhoto').src = 'default.jpg';
+   document.getElementById('candidatePhoto').src = 'default.png';
    document.getElementById('candidateName').textContent = 'Aqui aparecerá a foto do candidato';
    document.getElementById('candidateParty').textContent = '';
   }
