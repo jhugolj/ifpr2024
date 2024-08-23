@@ -7,12 +7,20 @@
  <link rel="stylesheet" href="styles.css">
 
 </head>
+<img src="cabecalho.png" width="300" >   
 <body>
 
- <h1>Eleição Marketing IFPR Pitanga 2024</h1>
+ <h1>Eleição Marketing - IFPR Pitanga 2024</h1>
  
- <div class="container"><p>Esta página é dedicada ao trabalho da disciplina de Marketing dos Alunos de Cooperativismo do Professor José Hugo do IFPR Campus Pitanga. Qualquer semelhança com a realidade é mera coincidência.<br>
-  <br> - É necessário identificação para registro dos votos.</p></div>
+ <div class="container"><p>Esta página é dedicada para a votação no trabalho da disciplina de Marketing dos Alunos de Cooperativismo do Professor José Hugo do IFPR Campus Pitanga. 
+    <br><i>Qualquer semelhança com a realidade é mera coincidência!</i><br>
+    <p><i>Para a versão teste temos os seguintes candidatos:</i><br>
+        <span class="small-text">
+        <b>23:</b> A mulher A'- Partido A.<br>
+        <b>34:</b> O Candidato Honesto - Partido da Ética Democrática Nacional.<br>
+        <b>56:</b> O Homem C - Partido C.<br>
+        <b>78:</b> A Candidata Honesta - Partido da Soberania Democrática Nacional.<br></span>
+    <br> - É necessário identificação identificação para registro dos votos.</p></div>
     <hr>
  <div class="input-group">
   <label for="name"><b> &nbsp Nome:</b></label>
@@ -26,9 +34,11 @@
   <label for="category"><b>Categoria:</b></label>
   <select id="category" required>
    <option value="" disabled selected>Selecione</option>
-   <option value="estudante"><b>Estudante do IFPR Pitanga</b></option>
+   <option value="estudante">Estudante do IFPR Pitanga</option>
+   <option value="" disabled selected></option>
    <option value="servidor">Servidor do IFPR</option>
-   <option value="comunidade">Parentes e Público em Geral</option>
+   <option value="" disabled selected></option>
+     <option value="comunidade">Parentes e Público em Geral</option>
   </select>
  </div>
  <button class="vote-button" onclick="startVoting()">VOTAR</button>
@@ -41,7 +51,7 @@
    <p id="candidateParty"> Partido do(a) Candidato(a)</p>
   </div>
   <div class="voting-section">
-   <div id="candidateDisplay">Digite o número do(a) candidato(a):</div>
+   <div id="candidateDisplay"><b>Digite o número do(a) candidato(a):</b></div>
    <div id="enteredNumber"></div>
    <div class="keypad">
     <button onclick="enterNumber('1')">1</button>
@@ -64,110 +74,7 @@
    </div>
   </div>
  </div>
-
- <script>
-  let vote = '';
-  const candidates = {
-   '12': { name: 'A mulher A', photo: 'fotoA.png', party: 'Partido A' },
-   '34': { name: 'Candidato Honesto', photo: 'fotoB.jpg', party: 'Partido da Ética Democrática Nacional' },
-   '56': { name: 'O Homem C', photo: 'fotoC.png', party: 'Partido C' },
-   '78': { name: 'A Candidata Honesta', photo: 'fotoD.png', party: 'Partido da Soberania Democrática Nacional' }
-  };
-
-  function startVoting() {
-   const name = document.getElementById('name').value;
-   const email = document.getElementById('email').value;
-   const category = document.getElementById('category').value;
-
-   if (name && email && category) {
-    document.getElementById('ballotBox').style.display = 'flex';
-   } else {
-    alert('Por favor, preencha todos os campos obrigatórios: Nome, Email e Categoria.');
-   }
-  }
-
-  function enterNumber(num) {
-   if (vote.length < 2) {
-    vote += num;
-    document.getElementById('enteredNumber').textContent = vote;
-    if (vote.length === 2) {
-     displayCandidateInfo(vote);
-    }
-   }
-  }
-
-  function displayCandidateInfo(vote) {
-   const candidate = candidates[vote];
-   if (candidate) {
-    document.getElementById('candidatePhoto').src = candidate.photo;
-    document.getElementById('candidateName').textContent = candidate.name;
-    document.getElementById('candidateParty').textContent = candidate.party;
-   } else {
-    document.getElementById('candidatePhoto').src = 'default.png';
-    document.getElementById('candidateName').textContent = 'Voto Nulo';
-    document.getElementById('candidateParty').textContent = '';
-   }
-  }
-
-  function blankVote() {
-   vote = 'Branco';
-   document.getElementById('enteredNumber').textContent = 'Voto em Branco';
-   document.getElementById('candidatePhoto').src = 'default.png';
-   document.getElementById('candidateName').textContent = '';
-   document.getElementById('candidateParty').textContent = '';
-  }
-
-  function clearVote() {
-   vote = '';
-   document.getElementById('enteredNumber').textContent = '';
-   document.getElementById('candidatePhoto').src = 'default.png';
-   document.getElementById('candidateName').textContent = 'Aqui aparecerá a foto do candidato';
-   document.getElementById('candidateParty').textContent = '';
-  }
-
-  function confirmVote() {
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const category = document.getElementById('category').value;
-
-    if (vote === '') {
-      alert('Por favor, insira o número do candidato ou selecione Voto em Branco.');
-    } else {
-      const candidate = candidates[vote] || { name: 'Branco', photo: '', party: '' };
-      const candidateName = candidate.name;
-      const candidateParty = candidate.party;
-
-      // URL do Google Apps Script
-      const url = 'https://script.google.com/macros/s/AKfycbyEs9lDIBsTTfUPXks29Ou8zeADLwyYJFF36rO1_Cm3OAkCGCkZsL_8vRQ7-CWIQViT/exec';
-
-      // Dados que serão enviados
-      const data = {
-        name: name,
-        email: email,
-        category: category,
-        vote: vote,
-        candidateName: candidateName,
-        candidateParty: candidateParty
-      };
-
-      // Enviando os dados para a planilha Google Sheets
-      fetch(url, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        body: new URLSearchParams(data).toString()
-      })
-      .then(response => {
-        alert('Voto confirmado: ' + vote);
-        clearVote();
-      })
-      .catch(error => {
-        console.error('Erro ao enviar voto:', error);
-      });
-    }
-  }
- </script>
+<hr>
+<script src="script.js"></script>
 </body>
 </html>
