@@ -66,6 +66,10 @@
             <img id="candidatePhoto" src="fotoD.png" width="125">
             <input type="radio" name="Candidato(a)" value="Candidata Honesta" /><b>Candidata Honesta</b>
           </label>
+          <label class="grid-item">
+            <img id="candidatePhoto" src="Branco.png" width="100">
+            <input type="radio" name="Candidato(a)" value="Branco" /><b>Voto em Branco</b>
+          </label>
         </div>
         <div id="message" style="display: none; margin: 20px; font-weight: bold; color: green; padding: 8px; background-color: beige; border-radius: 4px; border-color: aquamarine;"></div>
       </div>
@@ -73,7 +77,10 @@
       <hr>
       <div class="field is-grouped">
         <div class="control">
-          <button class="button is-confirm" type="submit" id="submit-button">Votar</button>
+          <button class="button is-confirm" type="submit" id="submit-button">CONFIRMAR</button>
+          
+    <!-- Elemento de áudio escondido -->
+    <audio id="urnaAudio" src="urna.mp3"></audio>
         </div>
         <div class="control">
           <button class="button is-clean" type="button">Cancelar</button>
@@ -143,6 +150,49 @@
         document.getElementById("message").style.display = "block";
       });
     });
+
+    document.addEventListener('DOMContentLoaded', function () {
+    const now = new Date();
+    const startDate = new Date('2024-08-26T15:53:00'); // Início do período de acesso
+    const endDate = new Date('2024-08-28T23:59:59');   // Fim do período de acesso
+
+    if (now < startDate) {
+        const countdown = document.createElement('div');
+        countdown.innerHTML = `
+            <h1>Período de votação ainda não disponível</h1>
+            <p><b>Tempo restante: <span id="timer"></span></b></p>
+        `;
+        document.body.innerHTML = "";
+        document.body.appendChild(countdown);
+
+        // Atualiza o timer a cada segundo
+        const timerInterval = setInterval(function() {
+            const now = new Date();
+            const timeLeft = startDate - now;
+
+            if (timeLeft <= 0) {
+                clearInterval(timerInterval);
+                document.body.innerHTML = "<h1>Votação Iniciada! Recarregue a Página!</h1>";
+                return;
+            }
+
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+            document.getElementById('timer').innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        }, 1000);
+    } else if (now > endDate) {
+        document.body.innerHTML = "<h1>Votação Encerrada. Obrigado pela participação!</h1>";
+    }
+});
+
+document.getElementById('submit-button').addEventListener('click', function() {
+            // Tocar o som
+            const urnaAudio = document.getElementById('urnaAudio');
+            urnaAudio.play();
+        });
   </script>
 </body>
 </html>
