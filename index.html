@@ -1,80 +1,148 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html>
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Eleição - Marketing 2024</title>
- <link rel="stylesheet" href="styles.css">
-
+  <link rel="stylesheet" href="styles.css" />
 </head>
-<img src="cabecalho.png" width="300" >   
 <body>
-
- <h1>Eleição Marketing - IFPR Pitanga 2024</h1>
- 
- <div class="container"><p>Esta página é dedicada para a votação no trabalho da disciplina de Marketing dos Alunos de Cooperativismo do Professor José Hugo do IFPR Campus Pitanga. 
+  <img src="cabecalho.png" width="300">
+  <h1 class="title">Eleição Simulada Para Prefeitura de Pitanga</h1>
+  <h2>Marketing IFPR Pitanga</h2>
+  <div class="container"><p>Esta página é dedicada para a votação no trabalho da disciplina de Marketing dos Alunos de Cooperativismo do Professor José Hugo do IFPR Campus Pitanga. 
     <br><i>Qualquer semelhança com a realidade é mera coincidência!</i><br>
-    <p><i>Para a versão teste temos os seguintes candidatos:</i><br>
-        <span class="small-text">
-        <b>23:</b> A mulher A'- Partido A.<br>
-        <b>34:</b> O Candidato Honesto - Partido da Ética Democrática Nacional.<br>
-        <b>56:</b> O Homem C - Partido C.<br>
-        <b>78:</b> A Candidata Honesta - Partido da Soberania Democrática Nacional.<br></span>
+    
     <br> - É necessário identificação identificação para registro dos votos.</p></div>
     <hr>
- <div class="input-group">
-  <label for="name"><b> &nbsp Nome:</b></label>
-  <input type="text" id="name" required>
- </div>
- <div class="input-group">
-  <label for="email"><b> &nbsp Email:</b></label>
-  <input type="email" id="email" required>
- </div>
- <div class="input-group">
-  <label for="category"><b>Categoria:</b></label>
-  <select id="category" required>
-   <option value="" disabled selected>Selecione</option>
-   <option value="estudante">Estudante do IFPR Pitanga</option>
-   <option value="" disabled selected></option>
-   <option value="servidor">Servidor do IFPR</option>
-   <option value="" disabled selected></option>
-     <option value="comunidade">Parentes e Público em Geral</option>
-  </select>
- </div>
- <button class="vote-button" onclick="startVoting()">VOTAR</button>
 
- <div id="ballotBox" class="ballot-box">
-  <div class="candidate-photo">
-   <img id="candidatePhoto" src="default.png" alt="Foto do Candidato">
-   <p id="candidateName" style="font-weight: bold;">Aqui teremos o nome do(a) Candidato(a)</b></p>
-   <br>
-   <p id="candidateParty"> Partido do(a) Candidato(a)</p>
-  </div>
-  <div class="voting-section">
-   <div id="candidateDisplay"><b>Digite o número do(a) candidato(a):</b></div>
-   <div id="enteredNumber"></div>
-   <div class="keypad">
-    <button onclick="enterNumber('1')">1</button>
-    <button onclick="enterNumber('2')">2</button>
-    <button onclick="enterNumber('3')">3</button>
-    <button onclick="enterNumber('4')">4</button>
-    <button onclick="enterNumber('5')">5</button>
-    <button onclick="enterNumber('6')">6</button>
-    <button onclick="enterNumber('7')">7</button>
-    <button onclick="enterNumber('8')">8</button>
-    <button onclick="enterNumber('9')">9</button>
-    <button onclick="enterNumber('0')">0</button>
-   </div>
-   <div>
-    <div class="action-buttons">
-     <button class="blank-button" onclick="blankVote()">Branco</button>
-     <button class="correct-button" onclick="clearVote()">Corrige</button>
-     <button class="confirm-button" onclick="confirmVote()">Confirmar</button>
+  <form id="form" class="container-dados" method="POST">
+    <div class="field">
+      <label class="label"><b>Eleitor(a)</b></label>
+      <div class="control">
+        <input class="input" type="text" placeholder="Insira seu nome completo" name="Eleitor(a)" />
+      </div>
     </div>
-   </div>
-  </div>
- </div>
-<hr>
-<script src="script.js"></script>
+
+    <div class="field">
+      <label class="label"><b>Email</b></label>
+      <div class="control">
+        <input class="input" type="email" placeholder="Your Email" name="Email" />
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label"><b>Categoria:</b></label>
+      <select id="category" name="Categoria" required>
+        <option value="" disabled selected>Selecione</option>
+        <option value="Estudante">Estudante do IFPR Pitanga</option>
+        <option value="Servidor">Servidor do IFPR</option>
+        <option value="Comunidade">Parentes e Público em Geral</option>
+      </select>
+    </div>
+
+    <!-- Botão "VOTAR" -->
+    <div class="field is-grouped">
+      <div class="control">
+        <button type="button" class="button is-confirm" id="vote-button">Votar</button>
+      </div>
+    </div>
+
+    <!-- Questões que serão exibidas após clicar em "VOTAR" -->
+        <div id="candidate-section" style="display: none;">
+      <div class="field">
+        <label class="label"><h3><strong>Selecione o(a) Candidato(a)</strong></h3></label>
+        <div class="control grid-container">
+          <label class="grid-item">
+            <img id="candidatePhoto" src="fotoA.png" width="125">
+            <input type="radio" name="Candidato(a)" value="Candidato-A" /><b>Candidata A</b>
+          </label>
+          <label class="grid-item">
+            <img id="candidatePhoto" src="fotoB.jpg" width="125">
+            <input type="radio" name="Candidato(a)" value="Candidato Honesto" /><b>Candidato Honesto</b>
+          </label>
+          <label class="grid-item">
+            <img id="candidatePhoto" src="fotoC.png" width="125">
+            <input type="radio" name="Candidato(a)" value="Candidato-C" /><b>Candidato C</b>
+          </label>
+          <label class="grid-item">
+            <img id="candidatePhoto" src="fotoD.png" width="125">
+            <input type="radio" name="Candidato(a)" value="Candidata Honesta" /><b>Candidata Honesta</b>
+          </label>
+        </div>
+        <div id="message" style="display: none; margin: 20px; font-weight: bold; color: green; padding: 8px; background-color: beige; border-radius: 4px; border-color: aquamarine;"></div>
+      </div>
+
+      <hr>
+      <div class="field is-grouped">
+        <div class="control">
+          <button class="button is-confirm" type="submit" id="submit-button">Votar</button>
+        </div>
+        <div class="control">
+          <button class="button is-clean" type="button">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <div id="message" style="display: none; margin: 20px; font-weight: bold; color: green; padding: 8px; background-color: beige; border-radius: 4px; border-color: aquamarine;"></div>
+
+  <script>
+    document.getElementById("vote-button").addEventListener("click", function () {
+      document.getElementById("candidate-section").style.display = "block";
+      this.style.display = "none"; // Esconde o botão "VOTAR" após o clique
+    });
+
+    document.getElementById("form").addEventListener("submit", function (e) {
+      e.preventDefault(); // Prevent the default form submission
+      document.getElementById("message").textContent = "Estamos registrando seu voto...";
+      document.getElementById("message").style.display = "block";
+      document.getElementById("submit-button").disabled = true;
+
+      // Collect the form data
+      var formData = new FormData(this);
+      var keyValuePairs = [];
+      for (var pair of formData.entries()) {
+        keyValuePairs.push(pair[0] + "=" + pair[1]);
+      }
+
+      var formDataString = keyValuePairs.join("&");
+
+      // Send a POST request to your Google Apps Script
+      fetch(
+        "https://script.google.com/macros/s/AKfycbwlRNI5l7juzpRufc96-Du_01xG-XDKbTQaUQ4rKwdm3FRG5mqrSfTO_dHwICL0MWynGw/exec",
+        {
+          redirect: "follow",
+          method: "POST",
+          body: formDataString,
+          headers: {
+            "Content-Type": "text/plain;charset=utf-8",
+          },
+        }
+      )
+      .then(function (response) {
+        if (response) {
+          return response;
+        } else {
+          throw new Error("Failed to submit the form.");
+        }
+      })
+      .then(function (data) {
+        document.getElementById("message").textContent = "Voto enviado com Sucesso! OBRIGADO!";
+        document.getElementById("message").style.display = "block";
+        document.getElementById("message").style.backgroundColor = "green";
+        document.getElementById("message").style.color = "beige";
+        document.getElementById("submit-button").disabled = false;
+        document.getElementById("form").reset();
+
+        setTimeout(function () {
+          document.getElementById("message").textContent = "";
+          document.getElementById("message").style.display = "none";
+        }, 2600);
+      })
+      .catch(function (error) {
+        console.error(error);
+        document.getElementById("message").textContent = "An error occurred while submitting the form.";
+        document.getElementById("message").style.display = "block";
+      });
+    });
+  </script>
 </body>
 </html>
