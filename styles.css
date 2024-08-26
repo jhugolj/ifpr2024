@@ -120,6 +120,7 @@ h3 {
 .button.is-clean {
   background-color: #ff4b4b;
   color: white;
+  ;
 }
 
 .button.is-clean:hover {
@@ -145,6 +146,17 @@ h3 {
 .button.is-confirm {
   background-color: #278236;
   color: white;
+  margin-left: 400px;
+}
+
+#vote-button {
+  background-color: green; /* Cor de fundo verde */
+  color: white; /* Texto em branco */
+  border: none; /* Remove a borda padrão */
+}
+
+#vote-button:hover {
+  background-color: darkgreen; /* Cor de fundo mais escura quando o botão é pressionado */
 }
 
 .button.is-confirm:hover {
@@ -228,4 +240,3 @@ h3 {
   font-style: bold;
   color: #0c2c0f;
 }
-
