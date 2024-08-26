@@ -41,9 +41,11 @@
     <!-- Botão "VOTAR" -->
     <div class="field is-grouped">
       <div class="control">
-        <button type="button" class="button is-confirm" id="vote-button">Votar</button>
+        <button type="button" class="button is-vote" id="vote-button"><b>VOTAR</b></button>
       </div>
     </div>
+
+    <hr>
 
     <!-- Questões que serão exibidas após clicar em "VOTAR" -->
         <div id="candidate-section" style="display: none;">
@@ -77,14 +79,15 @@
       <hr>
       <div class="field is-grouped">
         <div class="control">
-          <button class="button is-confirm" type="submit" id="submit-button">CONFIRMAR</button>
+          <button class="button is-clean" type="button">Cancelar</button>
+        </div>
+        <div class="control">
+          <button class="button is-confirm" type="submit" id="submit-button"><b>CONFIRMAR</b></button>
           
     <!-- Elemento de áudio escondido -->
     <audio id="urnaAudio" src="urna.mp3"></audio>
         </div>
-        <div class="control">
-          <button class="button is-clean" type="button">Cancelar</button>
-        </div>
+        
       </div>
     </div>
   </form>
