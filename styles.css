@@ -1,209 +1,231 @@
+/* Estilo geral da página */
 body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 2px;
-  }
-
-  h1 {
-    text-align: center;
-    color: #278236;
-  }
-  
-  .input-group {
-    margin-bottom: 20px;
-  }
-  
-  .input-group label {
-    margin-right: 10px;
-  }
-  
-  .ballot-box {
-    display: none;
-    flex-direction: row;
-    align-items: center;
-    margin-top: 30px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    width: 800px;
-}
-  
-  .candidate-photo {
-    margin-right: 20px;
-    text-align: center;
-    flex: 1;
-    border: 2px solid #ccc;
-    padding: 10px;
-    height: 300px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #fff;
-  }
-  
-  .candidate-photo img {
-    width: 150px;
-    height: 200px;
-    object-fit: cover;
-    border: 1px solid #347c2e;
-    border-radius: 5px;
-  }
-  
-  .candidate-photo p {
-    font-size: 15px;
-    color: #0c2c0f;
-    margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px; /* Adicionando margem para afastar do topo */
+  background-color: #f5f5f5; /* Cor de fundo suave para contrastar com o conteúdo */
 }
 
-#candidateName {
-    font-size: 15px; /* Ajuste o tamanho conforme necessário */
-    font-style: bold;
-    color: #0c2c0f;
+h1 {
+  text-align: center;
+  color: #278236;
+  margin-bottom: 2px; /* Espaço abaixo do título */
 }
-#candidateParty {
-    font-size: 10px; /* Ajuste o tamanho conforme necessário */
-    font-style: bold;
-    color: #0c2c0f;
+h2 {
+  text-align: center;
+  color: #ca1919;
 }
 
-  
-  .candidate-photo img.default {
-    width: 120px; 
-    height: 160px;
-    border: #fff;
-  }
-  
-  .voting-section {
-    flex-grow: 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  .candidate-photo p {
-    font-size: 28px;
-    color: #000000;
-    margin: 0;
-  }
-  
-  #candidateDisplay {
-    font-size: 12 px;
-    margin-bottom: 10px;
-    text-align: center;
-  }
-  
-  #enteredNumber {
-    font-size: 24px;
-    text-align: center;
-    margin-bottom: 20px;
-    height: 30px;
-    border: 1px solid #f9f9f9;
-    border-radius: 5px;
-    padding: 5px;
-    background-color: #f9f9f9;
-    width: 100%;
-    box-sizing: border-box;
-  }
-  
-  .keypad {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    margin-top: 20px;
-  }
-  
-  .keypad button {
-    padding: 15px;
-    font-size: 18px;
-    cursor: pointer;
-    background-color: black;
-    color: white;
-    border: 1px solid white;
-  }
-  
-  .container-row {
-    display: flex;
-    align-items: flex-end;
-    margin-left: 4px;
-    margin-right: 4px;
-  }
-  
-  .bottom-column {
-    float: none;
-    display: inline-block;
-  }
-  
-  .action-buttons {
-    display: block;
-    justify-content: space-between;
-    width: 100%;
-    margin-left: 20px;
-    margin-right: 4px;
-    align-content: end;
-  }
-  
-  .confirm-button {
-    padding: 16px;
-    font-weight: bold;
-    font-size: 18px;
-    cursor: pointer;
-    width: 30%;
-    background-color: rgb(69, 163, 66);
-    color: white;
-    border: 1px solid gray;
-    border-radius: 5px;
-  }
-  
-  .correct-button {
-    padding: 10px;
-    font-size: 16px;
-    cursor: pointer;
-    width: 30%;
-    background-color: rgb(255, 100, 0);
-    color: black;
-    border: 1px solid gray;
-    border-radius: 5px;
-  }
-  
-  .blank-button {
-    padding: 10px;
-    font-size: 16px;
-    cursor: pointer;
-    width: 30%;
-    background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
-    border: 1px solid rgb(0, 0, 0);
-    border-radius: 5px;
-  }
-  
-  .vote-button {
-    background-color: green;
-    color: red;
-    font-weight: bold;
-    font-size: 18px;
-    padding: 15px 30px;
-    margin-top: 20px;
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
-  }
 
-  .container {
-    max-width: 900px;
-    margin: auto;
-    background: white;
-    padding: 10px;
-    border-radius: 6px;
-    box-shadow: 0 0 25px rgba(18, 87, 27, 0.486);
+h3 {
+  text-align: center;
+  color: #000000;
 }
- 
+
+/* Estilo da caixa de formulário */
+.container {
+  max-width: 900px;
+  margin: auto;
+  background: white;
+  padding: 20px; /* Aumentando o padding para mais espaço interno */
+  border-radius: 8px; /* Suavizando as bordas */
+  box-shadow: 0 0 15px rgba(18, 87, 27, 0.2); /* Sombra mais suave */
+}
+
+/* Estilo dos campos de entrada */
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  margin-right: 10px;
+}
+
+.input, select {
+  width: 100%; /* Tornando os campos de entrada e seleção mais largos */
+  padding: 10px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Estilo das opções de candidatos */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+  margin-top: 20px;
+}
+
+.grid-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f9f9f9; /* Fundo leve para contraste */
+}
+
+.grid-item input[type="radio"] {
+  margin-right: 10px;
+}
+
+/* Estilo da mensagem de confirmação */
+#message {
+  margin: 20px;
+  font-weight: bold;
+  color: green;
+  padding: 8px;
+  background-color: beige;
+  border-radius: 4px;
+  border-color: aquamarine;
+  display: none;
+  text-align: center; /* Centralizando o texto */
+}
+
+/* Estilo dos botões */
+.field.is-grouped {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px; /* Espaçamento entre os botões */
+}
+
+.field.is-grouped .control {
+  margin-right: 0; /* Remova o margin-right, pois gap gerencia o espaçamento */
+}
+
+.button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.button.is-confirm {
+  background-color: #278236;
+  color: white;
+}
+
+.button.is-confirm:hover {
+  background-color: #1e672b; /* Cor mais escura ao passar o mouse */
+}
+
+.button.is-clean {
+  background-color: #ff4b4b;
+  color: white;
+}
+
+.button.is-clean:hover {
+  background-color: #d94444; /* Cor mais escura ao passar o mouse */
+}
+
+.field.is-grouped {
+  display: flex;
+  justify-content: center; /* Centraliza os botões horizontalmente */
+  align-items: center; /* Centraliza os botões verticalmente */
+  gap: 10px; /* Espaçamento entre os botões */
+}
+
+.button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.button.is-confirm {
+  background-color: #278236;
+  color: white;
+}
+
+.button.is-confirm:hover {
+  background-color: #1e672b; /* Cor mais escura ao passar o mouse */
+}
+
+.button.is-clean {
+  background-color: #ff4b4b;
+  color: white;
+}
+
+.button.is-clean:hover {
+  background-color: #d94444; /* Cor mais escura ao passar o mouse */
+}
+
+/* Estilo do título menor */
 .small-text {
-    font-size:smaller;
-    text-align: justify;
-    align-content: center;
-    padding-top: 5px;
-    margin-right:10px;
+  font-size: smaller;
+  text-align: justify;
+  align-content: center;
+  padding-top: 5px;
+  margin-right: 10px;
 }
+
+/* Estilo do botão de votação */
+.vote-button {
+  background-color: green;
+  color: red;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 15px 30px;
+  margin-top: 20px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.vote-button:hover {
+  background-color: darkgreen; /* Cor mais escura ao passar o mouse */
+}
+
+/* Estilo para as fotos dos candidatos */
+.candidate-photo {
+  margin-right: 20px;
+  text-align: center;
+  flex: 1;
+  border: 2px solid #ccc;
+  padding: 10px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+}
+
+.candidate-photo img {
+  width: 150px;
+  height: 200px;
+  object-fit: cover;
+  border: 1px solid #347c2e;
+  border-radius: 5px;
+}
+
+.candidate-photo p {
+  font-size: 15px;
+  color: #0c2c0f;
+  margin: 0;
+}
+
+/* Ajustes na exibição do candidato */
+#candidateName {
+  font-size: 15px;
+  font-style: bold;
+  color: #0c2c0f;
+}
+
+#candidateParty {
+  font-size: 10px;
+  font-style: bold;
+  color: #0c2c0f;
+}
+
