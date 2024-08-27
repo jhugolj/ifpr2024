@@ -7,9 +7,10 @@
   <img src="cabecalho.png" width="300">
   <h1 class="title">Eleição Simulada Para Prefeitura de Pitanga</h1>
   <h2>Marketing IFPR Pitanga</h2>
-  <div class="container"><p>Esta página é dedicada para a votação no trabalho da disciplina de Marketing dos Alunos de Cooperativismo do Professor José Hugo do IFPR Campus Pitanga. <br> <i>Qualquer semelhança com a realidade é mera coincidência!</i><br>
+  <div class="container"><p>Esta página é dedicada para a votação no trabalho da disciplina de Marketing dos Alunos de Cooperativismo do Professor José Hugo do IFPR Campus Pitanga.</p> 
+    <p><i>Qualquer semelhança com a realidade é mera coincidência!</i></p>
     
-    <br> - É necessário identificação identificação para registro dos votos.</p></div>
+    <br><b>- É necessário identificação identificação para registro dos votos.</b></p></div>
     <hr>
 
   <form id="form" class="container-dados" method="POST">
@@ -142,6 +143,12 @@
         document.getElementById("form").reset();
 
         setTimeout(function () {
+        document.getElementById("message").textContent = "";
+        document.getElementById("message").style.display = "none";
+        location.reload();  // Essa linha recarrega a página
+    }, 500);  // 500 milissegundos de espera antes de resetar
+        
+        setTimeout(function () {
           document.getElementById("message").textContent = "";
           document.getElementById("message").style.display = "none";
         }, 2600);
@@ -155,7 +162,7 @@
 
     document.addEventListener('DOMContentLoaded', function () {
     const now = new Date();
-    const startDate = new Date('2024-08-26T15:53:00'); // Início do período de acesso
+    const startDate = new Date('2024-08-27T00:00:00'); // Início do período de acesso
     const endDate = new Date('2024-08-28T23:59:59');   // Fim do período de acesso
 
     if (now < startDate) {
@@ -195,6 +202,7 @@ document.getElementById('submit-button').addEventListener('click', function() {
             const urnaAudio = document.getElementById('urnaAudio');
             urnaAudio.play();
         });
+
   </script>
 </body>
 </html>
