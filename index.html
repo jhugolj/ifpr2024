@@ -10,21 +10,21 @@
   <div class="container"><p>Esta página é dedicada para a votação no trabalho da disciplina de Marketing dos Alunos de Cooperativismo do Professor José Hugo do IFPR Campus Pitanga.</p> 
     <p><i>Qualquer semelhança com a realidade é mera coincidência!</i></p>
     
-    <br><b>- É necessário identificação para registro dos votos.</b></p></div>
+    <br><b>- É necessário identificação identificação para registro dos votos.</b></p></div>
     <hr>
 
   <form id="form" class="container-dados" method="POST">
     <div class="field">
       <label class="label"><b>Eleitor(a)</b></label>
       <div class="control">
-        <input class="input" type="text" placeholder="Insira seu nome completo" name="Eleitor(a)" required  />
+        <input class="input" type="text" placeholder="Insira seu nome completo" name="Eleitor(a)" />
       </div>
     </div>
 
     <div class="field">
       <label class="label"><b>Email</b></label>
       <div class="control">
-        <input class="input" type="email" placeholder="Your Email" name="Email" required  />
+        <input class="input" type="email" placeholder="Your Email" name="Email" />
       </div>
     </div>
 
@@ -70,7 +70,7 @@
           </label>
           <label class="grid-item">
             <img id="candidatePhoto" src="Branco.png" width="100">
-            <input type="radio" name="Candidato(a)" value="Voto em Branco" /><b>Voto em Branco</b>
+            <input type="radio" name="Candidato(a)" value="Branco" /><b>Voto em Branco</b>
           </label>
         </div>
         <div id="message" style="display: none; margin: 20px; font-weight: bold; color: green; padding: 8px; background-color: beige; border-radius: 4px; border-color: aquamarine;"></div>
@@ -162,14 +162,14 @@
 
     document.addEventListener('DOMContentLoaded', function () {
     const now = new Date();
-    const startDate = new Date('2024-08-27T00:00:00'); // Início do período de acesso
-    const endDate = new Date('2024-08-28T23:59:59');   // Fim do período de acesso
+    const startDate = new Date('2024-09-13T00:00:00'); // Início do período de acesso
+    const endDate = new Date('2024-09-14T23:59:59');   // Fim do período de acesso
 
     if (now < startDate) {
         const countdown = document.createElement('div');
         countdown.innerHTML = `
             <h1>Período de votação ainda não disponível</h1>
-            <p><b>Tempo restante: <span id="timer"></span></b></p>
+            <p class="countdown-timer"><b>Tempo restante: <span id="timer"></span></b></p
         `;
         document.body.innerHTML = "";
         document.body.appendChild(countdown);
