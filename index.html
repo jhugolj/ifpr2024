@@ -95,6 +95,22 @@
   <div id="message" style="display: none; margin: 20px; font-weight: bold; color: green; padding: 8px; background-color: beige; border-radius: 4px; border-color: aquamarine;"></div>
 
   <script>
+
+function checkForm() {
+      const eleitor = document.getElementById('eleitor').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const category = document.getElementById('category').value;
+      
+      // Habilita o botão "VOTAR" se todos os campos estiverem preenchidos corretamente
+      document.getElementById('vote-button').disabled = !(eleitor && email && category);
+    }
+
+    // Adiciona evento de escuta nos campos do formulário para verificar sempre que houver mudanças
+    document.getElementById('eleitor').addEventListener('input', checkForm);
+    document.getElementById('email').addEventListener('input', checkForm);
+    document.getElementById('category').addEventListener('change', checkForm);
+
+    
     document.getElementById("vote-button").addEventListener("click", function () {
       document.getElementById("candidate-section").style.display = "block";
       this.style.display = "none"; // Esconde o botão "VOTAR" após o clique
